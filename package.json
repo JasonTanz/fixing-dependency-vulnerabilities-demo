@@ -1,0 +1,19 @@
+{
+  "name": "repetitive-work-skills-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Workshop starter repo for Turning Repetitive Work into Skills using pnpm audit.",
+  "type": "module",
+  "scripts": {
+    "start": "node app/index.js",
+    "security:audit": "pnpm audit",
+    "security:audit:high": "pnpm audit --audit-level high",
+    "security:audit:json": "pnpm audit --json"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "lodash": "4.17.15",
+    "minimist": "0.0.8"
+  },
+  "devDependencies": {}
+}
