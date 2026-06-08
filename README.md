@@ -79,19 +79,25 @@ Severities reported by `pnpm audit`: 1 critical, 8 high, 6 moderate, 5 low.
 
 This repo intentionally uses old dependency versions so `pnpm audit` has something to report.
 
-Install dependencies without running package install scripts:
+You do **not** need to run `pnpm install` for the audit. `pnpm audit` reads the committed `pnpm-lock.yaml`, so you can clone the repo and audit immediately:
 
 ```bash
-pnpm install --ignore-scripts
+pnpm audit
 ```
 
-The repo also includes `.npmrc` with:
+Installing `node_modules` is only needed if you want to actually run the app. If you do install, scripts are disabled so nothing executes on install — the repo includes `.npmrc` with:
 
 ```ini
 ignore-scripts=true
 ```
 
+```bash
+pnpm install --ignore-scripts
+```
+
 ## Run the demo
+
+The audit works directly against the lockfile (no install required):
 
 ```bash
 pnpm security:audit
@@ -101,14 +107,4 @@ Optional high-severity-only audit:
 
 ```bash
 pnpm security:audit:high
-```
-
-## Investigate dependencies
-
-Use `pnpm why` to understand whether a vulnerable package is direct or transitive:
-
-```bash
-pnpm why lodash
-pnpm why minimist
-pnpm why express
 ```
