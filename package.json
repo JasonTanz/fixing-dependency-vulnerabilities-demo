@@ -4,6 +4,11 @@
   "private": true,
   "description": "Workshop starter repo for Turning Repetitive Work into Skills using pnpm audit.",
   "type": "module",
+  "packageManager": "pnpm@10.26.0",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10.16"
+  },
   "scripts": {
     "start": "node app/index.js",
     "security:audit": "pnpm audit",
